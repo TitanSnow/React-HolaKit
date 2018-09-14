@@ -7,10 +7,14 @@ class Demo extends Component {
   render() {
     return (
       <Hola.Root>
-        <p>Hello World</p>
+        <Hola.Container>
+          <p>Hello World</p>
+        </Hola.Container>
       </Hola.Root>
     )
   }
 }
 
-render(<Demo />, document.querySelector('#demo'))
+render(<Demo />, document.getElementById('demo'))
+document.body.style.margin = '0px'
+document.body.style.padding = '0px'

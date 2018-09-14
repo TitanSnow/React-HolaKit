@@ -4,6 +4,7 @@ import { ThemeProvider } from 'emotion-theming'
 import defaultThemeFactory from './var'
 import reset from './reset'
 import typography from './typography'
+import greyBg from '../layouts/greyBg'
 
 export default class Root extends Component {
   constructor(props) {
@@ -20,9 +21,12 @@ export default class Root extends Component {
         resizeObserver.observe(elem)
       }
     }
+    const optional = (name, func) => props => props[name] && func(props)
     this.Styled = styled.div`
-      ${reset};
-      ${typography};
+      ${optional('reset', reset)};
+      ${optional('typography', typography)};
+      ${optional('greyBg', greyBg)};
+      ${({ fillBody }) => fillBody && 'min-height: 100vh'};
     `
   }
   render() {
@@ -30,8 +34,15 @@ export default class Root extends Component {
     const { Styled } = this
     return (
       <ThemeProvider theme={theme}>
-        <Styled innerRef={this.observerWidth}>{this.props.children}</Styled>
+        <Styled {...this.props} innerRef={this.observerWidth} />
       </ThemeProvider>
     )
   }
+}
+
+Root.defaultProps = {
+  reset: true,
+  typography: true,
+  greyBg: true,
+  fillBody: true,
 }
