@@ -23,5 +23,3 @@ const smallTheme = {
 }
 
 export default width => (width <= layoutDivide ? smallTheme : defaultTheme)
-
-export const Var = name => props => props.theme[name]

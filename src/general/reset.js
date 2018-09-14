@@ -1,6 +1,6 @@
 import { css } from 'react-emotion'
 
-export default css`
+export default () => css`
   * {
     margin: 0;
     padding: 0;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { cx } from 'react-emotion'
+import styled from 'react-emotion'
 import { ThemeProvider } from 'emotion-theming'
 import defaultThemeFactory from './var'
 import reset from './reset'
+import typography from './typography'
 
 export default class Root extends Component {
   constructor(props) {
@@ -19,14 +20,17 @@ export default class Root extends Component {
         resizeObserver.observe(elem)
       }
     }
+    this.Styled = styled.div`
+      ${reset};
+      ${typography};
+    `
   }
   render() {
     const theme = defaultThemeFactory(this.state.width)
+    const { Styled } = this
     return (
       <ThemeProvider theme={theme}>
-        <div className={cx(reset)} ref={this.observerWidth}>
-          {this.props.children}
-        </div>
+        <Styled innerRef={this.observerWidth}>{this.props.children}</Styled>
       </ThemeProvider>
     )
   }
