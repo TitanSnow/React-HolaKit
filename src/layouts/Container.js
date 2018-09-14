@@ -1,6 +1,6 @@
 import styled, { css } from 'react-emotion'
 
-export const style = css`
+export const style = () => css`
   position: relative;
   width: 90%;
   max-width: 1220px;
