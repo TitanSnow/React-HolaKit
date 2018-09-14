@@ -1,15 +1,16 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { Component } from 'react'
+import { render } from 'react-dom'
 
-import Example from '../../src'
+import * as Hola from '../../src'
 
 class Demo extends Component {
   render() {
-    return <div>
-      <h1>React-HolaKit Demo</h1>
-      <Example/>
-    </div>
+    return (
+      <Hola.Root>
+        <p>Hello World</p>
+      </Hola.Root>
+    )
   }
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector('#demo'))

@@ -1,4 +1,6 @@
 root: true
+env:
+  browser: true
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
@@ -17,3 +19,7 @@ rules:
     - semi: false
       singleQuote: true
       trailingComma: es5
+  react/prop-types: 'off'
+settings:
+  react:
+    version: '16.0'

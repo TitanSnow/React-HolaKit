@@ -18,9 +18,10 @@
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "lint": "eslint src"
+    "lint": "eslint src demo"
   },
   "dependencies": {
+    "emotion": "^9.2.8",
     "emotion-theming": "^9.2.6",
     "react-emotion": "^9.2.8"
   },
