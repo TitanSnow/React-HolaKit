@@ -24,6 +24,4 @@ export const style = () => css`
   }
 `
 
-export default styled.div`
-  ${style};
-`
+export default styled.div(style)

@@ -11,6 +11,4 @@ export const style = ({ margined }) => css`
     `};
 `
 
-export default styled.div`
-  ${style};
-`
+export default styled.div(style)

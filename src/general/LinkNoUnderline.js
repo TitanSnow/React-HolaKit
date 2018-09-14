@@ -4,6 +4,4 @@ export const style = () => css`
   text-decoration: none;
 `
 
-export default styled.a`
-  ${style};
-`
+export default styled.a(style)

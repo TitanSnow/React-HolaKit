@@ -10,6 +10,4 @@ export const style = ({ ruled }) => css`
     `};
 `
 
-export default styled.div`
-  ${style};
-`
+export default styled.div(style)
