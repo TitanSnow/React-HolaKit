@@ -17,14 +17,24 @@
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "test:watch": "nwb test-react --server",
+    "lint": "eslint src"
   },
-  "dependencies": {},
+  "dependencies": {
+    "emotion-theming": "^9.2.6",
+    "react-emotion": "^9.2.8"
+  },
   "peerDependencies": {
     "react": "16.x"
   },
   "devDependencies": {
+    "babel-plugin-emotion": "^9.2.8",
+    "eslint": "^5.5.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
     "nwb": "0.23.x",
+    "prettier": "^1.14.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1"
   },

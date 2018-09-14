@@ -1,0 +1,19 @@
+root: true
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+plugins:
+  - prettier
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - prettier
+  - prettier/react
+rules:
+  prettier/prettier:
+    - error
+    - semi: false
+      singleQuote: true
+      trailingComma: es5
