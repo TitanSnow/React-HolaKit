@@ -63,8 +63,27 @@ export const CardStyled = styled.div`
   }
 `
 
+export const CardTinyStyled = styled.div`
+  ${CardStyled};
+  display: inline-block;
+  padding: 0.7rem;
+  width: 13rem;
+  > ${ImageStyled}:first-child {
+    ${({ cardAlter }) =>
+      cardAlter === 'head-image' &&
+      css`
+        margin: -0.7rem -0.7rem 1.2rem -0.7rem;
+        width: calc(100% + 1.4rem);
+      `};
+  }
+  @media (max-width: 700px) {
+    width: 8rem;
+  }
+`
+
 export default function Card(props) {
   const { children } = props
+  const { tiny, ...extraProps } = props
   const childrenArray = React.Children.toArray(children)
   let cardAlter
   if (childrenArray.length === 1 && childrenArray[0].type === Image)
@@ -75,5 +94,6 @@ export default function Card(props) {
     childrenArray[1].type !== Image
   )
     cardAlter = 'head-image'
-  return <CardStyled {...props} cardAlter={cardAlter} />
+  const Styled = tiny ? CardTinyStyled : CardStyled
+  return <Styled {...extraProps} cardAlter={cardAlter} />
 }
