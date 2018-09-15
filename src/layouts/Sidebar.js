@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
 import layoutContainer from './layoutContainer'
 
 export const Main = styled.div``
@@ -13,17 +13,21 @@ const LayoutStyled = styled.div`
   ${layoutContainer};
   > ${Main} {
     width: 70%;
-    padding-${props => props.sidebarPosition}: calc(${props => props.theme.cardGap} / 2);
+    padding-${props => props.sidebarPosition}: calc(${props =>
+  props.theme.cardGap} / 2);
     @media (max-width: 700px) {
       width: auto;
       padding-${props => props.sidebarPosition}: 0;
-      padding-${props => props.sidebarPosition === 'right' ? 'bottom' : 'top'}: calc(${props => props.theme.cardGap} / 2);
+      padding-${props =>
+        props.sidebarPosition === 'right' ? 'bottom' : 'top'}: calc(${props =>
+  props.theme.cardGap} / 2);
     }
   }
   > ${Aside} {
     width: 30%;
     float: ${props => props.sidebarPosition};
-    padding-${props => reverse(props.sidebarPosition)}: calc(${props => props.theme.cardGap} / 2);
+    padding-${props => reverse(props.sidebarPosition)}: calc(${props =>
+  props.theme.cardGap} / 2);
     @media (max-width: 700px) {
       width: auto;
       float: none;

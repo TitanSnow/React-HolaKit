@@ -27,13 +27,13 @@ commands / verbs.
 
 import React from 'react'
 import styled, { css } from 'react-emotion'
-import Image from '../Image'
+import Image, { ImageStyled } from '../Image'
 
-export const style = ({ theme }) => css`
-  padding: ${theme.cardPadding};
+export const CardStyled = styled.div`
+  padding: ${props => props.theme.cardPadding};
   background: #fff;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-  color: ${theme.textDarkColor};
+  color: ${props => props.theme.textDarkColor};
   background-size: cover;
   background-position: center;
 
@@ -45,31 +45,35 @@ export const style = ({ theme }) => css`
   p {
     line-height: 22px;
   }
+
+  > ${ImageStyled}:first-child {
+    ${({ cardAlter, theme: { cardPadding } }) => {
+      if (cardAlter === 'head-image')
+        return css`
+          margin: calc(0rem - ${cardPadding}) calc(0rem - ${cardPadding}) 2rem
+            calc(0rem - ${cardPadding});
+          width: calc(100% + 2 * ${cardPadding});
+        `
+      if (cardAlter === 'full-image')
+        return css`
+          margin: calc(0rem - ${cardPadding});
+          width: calc(100% + 2 * ${cardPadding});
+        `
+    }};
+  }
 `
 
-const CardStyled = styled.div(style)
-
 export default function Card(props) {
-  const { children, ...extraProps } = props
+  const { children } = props
   const childrenArray = React.Children.toArray(children)
-  let newChildren
-  if (childrenArray.length === 1 && childrenArray[0].type === Image) {
-    // full image
-    newChildren = [
-      React.cloneElement(childrenArray[0], { cardImageFull: true }),
-    ]
-  } else if (
+  let cardAlter
+  if (childrenArray.length === 1 && childrenArray[0].type === Image)
+    cardAlter = 'full-image'
+  else if (
     childrenArray.length >= 2 &&
     childrenArray[0].type === Image &&
     childrenArray[1].type !== Image
-  ) {
-    // head image
-    newChildren = [
-      React.cloneElement(childrenArray[0], { cardImageHead: true }),
-      ...childrenArray.slice(1),
-    ]
-  } else {
-    newChildren = children
-  }
-  return <CardStyled {...extraProps}>{newChildren}</CardStyled>
+  )
+    cardAlter = 'head-image'
+  return <CardStyled {...props} cardAlter={cardAlter} />
 }

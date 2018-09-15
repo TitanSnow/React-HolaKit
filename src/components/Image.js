@@ -1,27 +1,23 @@
+import React from 'react'
 import styled, { css } from 'react-emotion'
 
-export const style = ({
-  theme: { elementGap, cardPadding },
-  round,
-  radii,
-  cardImageHead,
-  cardImageFull,
-}) => css`
+export const style = ({ theme: { elementGap }, round, radii }) => css`
   display: block;
   width: 100%;
   margin: ${elementGap} 0;
   border-radius: ${round ? '50%' : radii ? '5px' : false};
-
-  ${cardImageHead &&
-    css`
-      margin: calc(0rem - ${cardPadding}) calc(0rem - ${cardPadding}) 2rem
-        calc(0rem - ${cardPadding});
-      width: calc(100% + 2 * ${cardPadding});
-    `} ${cardImageFull &&
-    css`
-      margin: calc(0rem - ${cardPadding});
-      width: calc(100% + 2 * ${cardPadding});
-    `};
 `
 
-export default styled.img(style)
+export const ImageStyled = styled.img(style)
+
+export default function Image(props) {
+  let { children, src, ...extraProps } = props
+  const childrenArray = React.Children.toArray(children)
+  if (
+    src === void 0 &&
+    childrenArray.length === 1 &&
+    typeof childrenArray[0] === 'string'
+  )
+    src = childrenArray[0]
+  return <ImageStyled {...extraProps} src={src} />
+}
