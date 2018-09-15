@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import styled from 'react-emotion'
 import { ThemeProvider } from 'emotion-theming'
 import defaultThemeFactory from './var'
@@ -6,7 +6,7 @@ import reset from './reset'
 import typography from './typography'
 import greyBg from '../layouts/greyBg'
 
-export default class Root extends Component {
+export default class Root extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
