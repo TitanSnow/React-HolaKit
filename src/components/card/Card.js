@@ -28,6 +28,7 @@ commands / verbs.
 import React from 'react'
 import styled, { css } from 'react-emotion'
 import Image, { ImageStyled } from '../Image'
+import CardListItem from './CardListItem'
 
 export const CardStyled = styled.div`
   padding: ${props => props.theme.cardPadding};
@@ -86,6 +87,7 @@ export default function Card(props) {
   const { tiny, ...extraProps } = props
   const childrenArray = React.Children.toArray(children)
   let cardAlter
+  let Styled = tiny ? CardTinyStyled : CardStyled
   if (childrenArray.length === 1 && childrenArray[0].type === Image)
     cardAlter = 'full-image'
   else if (
@@ -94,6 +96,14 @@ export default function Card(props) {
     childrenArray[1].type !== Image
   )
     cardAlter = 'head-image'
-  const Styled = tiny ? CardTinyStyled : CardStyled
+  else if (
+    childrenArray.length &&
+    childrenArray.every(child => child.type === CardListItem)
+  )
+    Styled = styled.div`
+      ${Styled};
+      padding: 0;
+      overflow: hidden;
+    `
   return <Styled {...extraProps} cardAlter={cardAlter} />
 }
