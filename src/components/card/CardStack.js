@@ -23,6 +23,7 @@ import React from 'react'
 import styled from 'react-emotion'
 import { CardStyled } from './Card'
 import { Columns, ColumnsItem } from '../../'
+import CardStackTitle from './CardStackTitle'
 
 const varCardGap = props => props.theme.cardGap
 export const CardStackStyled = styled.div`
@@ -53,18 +54,35 @@ export const CardStackColumnsStyled = styled(Columns)`
 
 export default function CardStack(props) {
   const { children, container: Container = 'div', ...extraProps } = props
+  const childrenArray = React.Children.toArray(children)
+  const titleIdx = childrenArray.findIndex(
+    child => child.type === CardStackTitle
+  )
+  let title
+  if (titleIdx !== -1) {
+    title = childrenArray.splice(titleIdx, 1)[0]
+  }
+  let result
   if (Container !== Columns) {
     const Styled =
       Container === 'div'
         ? CardStackStyled
         : CardStackStyled.withComponent(Container)
-    return <Styled {...extraProps}>{children}</Styled>
+    result = <Styled {...extraProps}>{childrenArray}</Styled>
   } else
-    return (
+    result = (
       <CardStackColumnsStyled {...extraProps}>
-        {React.Children.map(children, child => (
-          <ColumnsItem>{child}</ColumnsItem>
+        {childrenArray.map(child => (
+          <ColumnsItem key={child.key}>{child}</ColumnsItem>
         ))}
       </CardStackColumnsStyled>
     )
+  if (title)
+    return (
+      <React.Fragment>
+        {title}
+        {result}
+      </React.Fragment>
+    )
+  else return result
 }
