@@ -1,3 +1,5 @@
 export * from './card'
 export { default as Image } from './Image'
 export { default as Avatar } from './Avatar'
+export { default as Badge } from './Badge'
+export { default as Button, SubmitButton, LinkButton } from './Button'
