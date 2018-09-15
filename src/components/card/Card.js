@@ -64,8 +64,7 @@ export const CardStyled = styled.div`
   }
 `
 
-export const CardTinyStyled = styled.div`
-  ${CardStyled};
+export const CardTinyStyled = styled(CardStyled)`
   display: inline-block;
   padding: 0.7rem;
   width: 13rem;
@@ -80,6 +79,11 @@ export const CardTinyStyled = styled.div`
   @media (max-width: 700px) {
     width: 8rem;
   }
+`
+
+export const CardListStyled = styled.div`
+  padding: 0;
+  overflow: hidden;
 `
 
 export default function Card(props) {
@@ -100,10 +104,6 @@ export default function Card(props) {
     childrenArray.length &&
     childrenArray.every(child => child.type === CardListItem)
   )
-    Styled = styled.div`
-      ${Styled};
-      padding: 0;
-      overflow: hidden;
-    `
+    Styled = CardListStyled.withComponent(Styled)
   return <Styled {...extraProps} cardAlter={cardAlter} />
 }
