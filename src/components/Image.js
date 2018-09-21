@@ -1,16 +1,16 @@
 import React from 'react'
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
 
-export const style = ({ theme: { elementGap }, round, radii }) => css`
-  display: block;
-  width: 100%;
-  margin: ${elementGap} 0;
-  border-radius: ${round ? '50%' : radii ? '5px' : false};
-`
+const Inner = styled.img(
+  ({ theme: { elementGap }, round = false, radii = false }) => ({
+    display: 'block',
+    width: '100%',
+    margin: `${elementGap} 0`,
+    borderRadius: (round && '50%') || (radii && '5px'),
+  })
+)
 
-export const ImageStyled = styled.img(style)
-
-export default function Image(props) {
+export default styled(props => {
   let { children, src, ...extraProps } = props
   const childrenArray = React.Children.toArray(children)
   if (
@@ -19,5 +19,5 @@ export default function Image(props) {
     typeof childrenArray[0] === 'string'
   )
     src = childrenArray[0]
-  return <ImageStyled {...extraProps} src={src} />
-}
+  return <Inner {...extraProps} src={src} />
+})()

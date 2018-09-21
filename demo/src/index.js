@@ -10,9 +10,9 @@ class Demo extends Component {
       <Hola.Root lang="en">
         <Hola.Container>
           <Hola.CardStack container={Hola.Columns}>
-            <Hola.CardStackTitle>UI Components</Hola.CardStackTitle>
+            <Hola.Headline>UI Components</Hola.Headline>
             <Hola.Card>
-              <Hola.CardTitle>Button</Hola.CardTitle>
+              <Hola.Headline>Button</Hola.Headline>
               <p>
                 <Hola.SubmitButton>Submit</Hola.SubmitButton>{' '}
                 <Hola.Button>Normal</Hola.Button>{' '}
@@ -27,7 +27,7 @@ class Demo extends Component {
               <Hola.Image>
                 https://source.unsplash.com/featured/?head
               </Hola.Image>
-              <Hola.CardTitle>Card with Image</Hola.CardTitle>
+              <Hola.Headline>Card with Image</Hola.Headline>
               <p>
                 Nulla neque ducimus, natus a voluptatibus quae minima cumque
                 tenetur iusto modi. Harum repellendus fugit laboriosam quia
@@ -35,7 +35,7 @@ class Demo extends Component {
               </p>
             </Hola.Card>
             <Hola.Card>
-              <Hola.CardTitle>Avatar</Hola.CardTitle>
+              <Hola.Headline>Avatar</Hola.Headline>
               <Hola.Avatar round>{myAvatarURL}</Hola.Avatar>{' '}
               <Hola.Avatar radii>{myAvatarURL}</Hola.Avatar>{' '}
               <Hola.Avatar round highlighted>
@@ -46,10 +46,10 @@ class Demo extends Component {
               </Hola.Avatar>
             </Hola.Card>
             <Hola.Card>
-              <Hola.CardTitle>
+              <Hola.Headline>
                 Badge
                 <Hola.Badge>0.1.0-dev.1</Hola.Badge>
-              </Hola.CardTitle>
+              </Hola.Headline>
               <p>
                 This is a very long title
                 <Hola.Badge>Uncategorized</Hola.Badge>
@@ -60,21 +60,21 @@ class Demo extends Component {
               <Hola.Image>https://source.unsplash.com/featured/?sky</Hola.Image>
             </Hola.Card>
             <Hola.Card>
-              <Hola.CardListItem>
+              <Hola.CardItem>
                 <h3>Card List Item 1</h3>
                 <p>Posted at Aug 17th.</p>
-              </Hola.CardListItem>
-              <Hola.CardListItem>
+              </Hola.CardItem>
+              <Hola.CardItem>
                 <h3>Card List Item 2</h3>
                 <p>Posted at Dec 25th.</p>
-              </Hola.CardListItem>
-              <Hola.CardListItem>
+              </Hola.CardItem>
+              <Hola.CardItem>
                 <h3>Card List Item 3</h3>
                 <p>Posted at Jun 4th.</p>
-              </Hola.CardListItem>
+              </Hola.CardItem>
             </Hola.Card>
             <Hola.Card>
-              <Hola.CardTitle>Aut, atque porro?</Hola.CardTitle>
+              <Hola.Headline>Aut, atque porro?</Hola.Headline>
               <p>
                 Corrupti odit adipisci molestiae expedita quasi necessitatibus.
                 Ipsam aliquam cumque temporibus incidunt quidem possimus,
@@ -86,33 +86,31 @@ class Demo extends Component {
 
         {/** Begin of Shit **/}
         <Hola.Container>
-          <Hola.CardStackTitle>
+          {/* <Hola.Headline>
             Scrollable Horizontal Layout
-          </Hola.CardStackTitle>
+          </Hola.Headline> */}
+          <Hola.Card tiny>
+            <Hola.Image>https://source.unsplash.com/featured/?head</Hola.Image>
+            <Hola.Headline>Tiny Card</Hola.Headline>
+          </Hola.Card>
+          <Hola.Card tiny>
+            <Hola.Image>https://source.unsplash.com/featured/?head</Hola.Image>
+            <Hola.Headline>Tiny Card</Hola.Headline>
+          </Hola.Card>
+          <Hola.Card tiny>
+            <Hola.Image>https://source.unsplash.com/featured/?head</Hola.Image>
+            <Hola.Headline>Tiny Card</Hola.Headline>
+          </Hola.Card>
         </Hola.Container>
-        <Hola.ScrollableHori>
-          <Hola.Container>
-            {Array(9)
-              .fill(0)
-              .map((_, idx) => (
-                <Hola.Card tiny key={idx}>
-                  <Hola.Image>
-                    https://source.unsplash.com/featured/?head
-                  </Hola.Image>
-                  <Hola.CardTitle tag="h4">Tiny Card</Hola.CardTitle>
-                </Hola.Card>
-              ))}
-          </Hola.Container>
-        </Hola.ScrollableHori>
         {/** End of Shit **/}
 
         <Hola.Container>
-          <Hola.CardStackTitle>Sidebar Layout</Hola.CardStackTitle>
+          {/* <Hola.Headline>Sidebar Layout</Hola.Headline> */}
           <Hola.Sidebar.Layout>
             <Hola.Sidebar.Main>
               <Hola.CardStack>
                 <Hola.Card>
-                  <Hola.CardTitle>Typography</Hola.CardTitle>
+                  <Hola.Headline>Typography</Hola.Headline>
                   <Hola.Content>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
