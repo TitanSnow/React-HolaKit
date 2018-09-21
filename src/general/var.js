@@ -1,25 +1,61 @@
-const layoutDivide = 700
-const defaultTheme = {
-  primaryColor: '#3498db',
-  textLightColor: 'rgba(255, 255, 255, 0.97)',
-  textDarkColor: 'rgba(0, 0, 0, 0.8)',
-  bgOnDark: 'rgba(255, 255, 255, 0.4)',
-  backdropColor: 'rgba(0, 0, 0, 0.8)',
+import React, { PureComponent } from 'react'
+import { ThemeProvider } from 'emotion-theming'
 
-  focusColor: 'rgba(52, 152, 219, 0.5)',
+export default class DefaultVars extends PureComponent {
+  constructor(props) {
+    super(props)
 
-  avatarBg: 'rgba(255, 255, 255, 0.4)',
+    this.syncVars = this.syncVars.bind(this)
 
-  cardPadding: '2.5rem',
-  cardGap: '2rem',
+    this.layoutDivide = 700
 
-  elementGap: '2rem',
+    this.defaultVars = {
+      primaryColor: '#3498db',
+      textLightColor: 'rgba(255, 255, 255, 0.97)',
+      textDarkColor: 'rgba(0, 0, 0, 0.8)',
+      bgOnDark: 'rgba(255, 255, 255, 0.4)',
+      backdropColor: 'rgba(0, 0, 0, 0.8)',
+      focusColor: 'rgba(52, 152, 219, 0.5)',
+      avatarBg: 'rgba(255, 255, 255, 0.4)',
+      cardPadding: '2.5rem',
+      cardGap: '2rem',
+      elementGap: '2rem',
+      layoutDivide: this.layoutDivide + 'px',
+    }
+
+    this.smallVars = {
+      ...this.defaultVars,
+      cardPadding: '1.6rem',
+      cardGap: '2.5vw',
+      elementGap: '1rem',
+    }
+
+    this.state = {
+      vars: this.defaultVars,
+    }
+  }
+
+  syncVars() {
+    const width = window.innerWidth
+    if (width <= this.layoutDivide)
+      this.setState({
+        vars: this.smallVars,
+      })
+    else
+      this.setState({
+        vars: this.defaultVars,
+      })
+  }
+
+  render() {
+    return <ThemeProvider {...this.props} theme={this.state.vars} />
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.syncVars)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.syncVars)
+  }
 }
-const smallTheme = {
-  ...defaultTheme,
-  cardPadding: '1.6rem',
-  cardGap: '2.5vw',
-  elementGap: '1rem',
-}
-
-export default width => (width <= layoutDivide ? smallTheme : defaultTheme)

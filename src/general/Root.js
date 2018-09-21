@@ -1,48 +1,39 @@
 import React, { PureComponent } from 'react'
-import styled from 'react-emotion'
-import { ThemeProvider } from 'emotion-theming'
-import defaultThemeFactory from './var'
-import reset from './reset'
-import typography from './typography'
-import greyBg from '../layouts/greyBg'
+import styled, { css } from 'react-emotion'
+import DefaultVars from './var'
+import Reset from './reset'
+import Typography from './typography'
 
-export default class Root extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = {
-      width: 9999,
-    }
-    this.observerWidth = elem => {
-      if ('ResizeObserver' in window) {
-        const resizeObserver = new ResizeObserver(entries => {
-          const width = entries[0].contentRect.width
-          this.setState({ width })
-        })
-        resizeObserver.observe(elem)
-      }
-    }
-    const optional = (name, func) => props => props[name] && func(props)
-    this.Styled = styled.div`
-      ${optional('reset', reset)};
-      ${optional('typography', typography)};
-      ${optional('greyBg', greyBg)};
-      ${({ fillBody }) => fillBody && 'min-height: 100vh'};
-    `
-  }
+const Inner = styled.div(
+  ({ background = '#eee' }) => ({ background }),
+  ({ fillBody = true }) => fillBody && { minHeight: '100vh' },
+  ({ reset = true, ...extraProps }) => reset && Reset(extraProps),
+  ({ typography = true, ...extraProps }) => typography && Typography(extraProps)
+)
+
+const FillBody = css({
+  margin: 0,
+  padding: 0,
+})
+
+class Root extends PureComponent {
   render() {
-    const theme = defaultThemeFactory(this.state.width)
-    const { Styled } = this
+    const { vars: Vars = DefaultVars, ...extraProps } = this.props
     return (
-      <ThemeProvider theme={theme}>
-        <Styled {...this.props} innerRef={this.observerWidth} />
-      </ThemeProvider>
+      <Vars>
+        <Inner {...extraProps} />
+      </Vars>
     )
   }
+
+  componentDidMount() {
+    const { fillBody = true } = this.props
+    if (fillBody) document.body.classList.add(FillBody)
+  }
+  componentWillUnmount() {
+    const { fillBody = true } = this.props
+    if (fillBody) document.body.classList.remove(FillBody)
+  }
 }
 
-Root.defaultProps = {
-  reset: true,
-  typography: true,
-  greyBg: true,
-  fillBody: true,
-}
+export default styled(Root)()

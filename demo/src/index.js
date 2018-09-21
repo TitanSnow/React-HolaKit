@@ -186,5 +186,3 @@ export function Layout(props) {
 }
 
 render(<Demo />, document.getElementById('demo'))
-document.body.style.margin = '0px'
-document.body.style.padding = '0px'
