@@ -21,23 +21,27 @@
     "lint": "eslint src demo"
   },
   "dependencies": {
-    "emotion": "^9.2.8",
-    "emotion-theming": "^9.2.6",
-    "react-emotion": "^9.2.8"
+    "emotion": "9.x",
+    "emotion-theming": "9.x",
+    "react-emotion": "9.x"
   },
   "peerDependencies": {
     "react": "16.x"
   },
   "devDependencies": {
-    "babel-plugin-emotion": "^9.2.8",
-    "eslint": "^5.5.0",
-    "eslint-config-prettier": "^3.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-react": "^7.11.1",
-    "nwb": "0.23.x",
-    "prettier": "^1.14.2",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1"
+    "babel-plugin-emotion": "9.2.10",
+    "emotion": "9.2.10",
+    "emotion-theming": "9.2.9",
+    "eslint": "5.6.0",
+    "eslint-config-prettier": "3.0.1",
+    "eslint-plugin-prettier": "2.6.2",
+    "eslint-plugin-react": "7.11.1",
+    "nwb": "0.23.0",
+    "prettier": "1.14.3",
+    "prop-types": "15.6.2",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-emotion": "9.2.10"
   },
   "author": "",
   "homepage": "",
