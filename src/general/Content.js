@@ -1,6 +1,6 @@
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
 
-export const style = () => css`
+export default styled.div`
   h1,
   h2,
   h3,
@@ -23,5 +23,3 @@ export const style = () => css`
     overflow-wrap: break-word;
   }
 `
-
-export default styled.div(style)
