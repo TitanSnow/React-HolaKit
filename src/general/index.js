@@ -1,5 +1,4 @@
 export { default as Root } from './Root'
-export { default as Columns } from './Columns'
-export { default as ColumnsItem } from './ColumnsItem'
+export { Columns, ColumnsItem } from './Columns'
 export { default as Content } from './Content'
 export { default as Link } from './Link'

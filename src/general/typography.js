@@ -1,10 +1,13 @@
 import './font.css'
 import { css } from 'react-emotion'
 
-export default ({ theme }) => css`
-  color: ${theme.textDarkColor};
+export default ({
+  theme: { textDarkColor, primaryColor, layoutDivide },
+}) => css`
+  color: ${textDarkColor};
   font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, 'Lantinghei SC',
     sans-serif;
+  font-size: 1rem;
 
   h1 {
     font-size: 2em;
@@ -25,7 +28,7 @@ export default ({ theme }) => css`
   }
 
   a {
-    color: ${theme.primaryColor};
+    color: ${primaryColor};
   }
 
   p {
@@ -35,7 +38,7 @@ export default ({ theme }) => css`
     margin-bottom: 0;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: ${layoutDivide}) {
     font-size: 0.9rem;
   }
 `
