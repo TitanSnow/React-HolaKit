@@ -8,6 +8,7 @@ export const ScrollableHori = styled.div(
     flexWrap: 'nowrap',
     alignItems: 'flex-start',
     overflowX: 'auto',
+    '-webkit-overflow-scrolling': 'touch',
   },
   ({ theme: { cardGap } }) => css`
     > ${ScrollableItem} {
