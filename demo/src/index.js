@@ -261,6 +261,10 @@ export function Layout(props) {
             </aside>
           </Hola.CardStack>
         </Hola.Container>
+        <Hola.Footer>
+          <p>Copyright 2018 TitanSnow</p>
+          <p>Test</p>
+        </Hola.Footer>
       </Hola.Root>
     )
   }
