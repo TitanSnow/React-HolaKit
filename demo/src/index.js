@@ -24,6 +24,16 @@ class Demo extends Component {
               </p>
             </Hola.Card>
             <Hola.Card>
+              <Hola.Headline>VMenu</Hola.Headline>
+              <Hola.VMenu>
+                <Hola.Link href="javascript:void 0">苟利国家生死以，岂因祸福避趋之。敢同恶鬼争高下，不向霸王让寸分。</Hola.Link>
+                <Hola.Link href="javascript:void 0">毛泽东思想</Hola.Link>
+                <Hola.Link href="javascript:void 0">邓小平理论<Hola.Badge>微小的贡献</Hola.Badge></Hola.Link>
+                <Hola.Link href="javascript:void 0" active>三个代表重要思想<Hola.Badge>重要</Hola.Badge><Hola.Badge radii>64</Hola.Badge></Hola.Link>
+                <Hola.Link href="javascript:void 0">科学发展观</Hola.Link>
+              </Hola.VMenu>
+            </Hola.Card>
+            <Hola.Card>
               <Hola.Image>
                 https://source.unsplash.com/featured/?head
               </Hola.Image>
@@ -48,7 +58,7 @@ class Demo extends Component {
             <Hola.Card>
               <Hola.Headline>
                 Badge
-                <Hola.Badge>0.1.0-dev.1</Hola.Badge>
+                <Hola.Badge light>0.1.0-dev.1</Hola.Badge>
               </Hola.Headline>
               <p>
                 This is a very long title

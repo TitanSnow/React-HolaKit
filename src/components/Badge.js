@@ -1,4 +1,5 @@
 import styled from 'react-emotion'
+import { ActiveLi } from './VMenu'
 
 export default styled.span(
   ({ theme: { primaryColor, textLightColor } }) => ({
@@ -16,11 +17,16 @@ export default styled.span(
       padding: '6px 12px',
       borderRadius: '999em',
     },
-  ({ light = false, theme: { bgOnDark } }) =>
-    light && {
+  ({ light = false, theme: { bgOnDark } }) => {
+    const lt = {
       background: bgOnDark,
       fontWeight: 'normal',
-    },
+    }
+    return {
+      [`${ActiveLi} &`]: lt,
+      ...(light && lt),
+    }
+  },
   ({ theme: { layoutDivide } }) => ({
     [`@media (max-width: ${layoutDivide})`]: {
       fontSize: '0.9rem',
