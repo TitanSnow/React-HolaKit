@@ -65,3 +65,13 @@ export const SubmitButton = styled(props => {
   return <SubmitButtonInner type="submit" {...extraProps} />
 })()
 export const LinkButton = Button.withComponent('a')
+const HeroLinkButtonInner = styled(LinkButton)(
+  ({ theme: { textLightColor } }) => ({
+    fontSize: '1rem',
+    color: `${textLightColor} !important`,
+    boxShadow: `0 0 0 .2em ${textLightColor} inset !important`,
+  })
+)
+export const HeroLinkButton = styled(props => {
+  return <HeroLinkButtonInner {...props} ghost />
+})()

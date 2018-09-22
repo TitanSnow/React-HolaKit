@@ -8,9 +8,30 @@ class Demo extends Component {
     const myAvatarURL = 'https://avatars.githubusercontent.com/u/19969470'
     return (
       <Hola.Root lang="en">
+        <Hola.Header>
+          <Hola.Navbar>
+            <nav>
+              <Hola.Brand href="javascript:void 0">React-HolaKit</Hola.Brand>
+              <Hola.Link href="javascript:void 0">Test1</Hola.Link>
+            </nav>
+            <nav>
+              <Hola.Link href="javascript:void 0">Test2</Hola.Link>
+              <Hola.Link href="javascript:void 0">Test3</Hola.Link>
+            </nav>
+          </Hola.Navbar>
+          <Hola.Hero>
+            <Hola.Headline>React-HolaKit</Hola.Headline>
+            <p>
+              Yet another design-driven UI component library, now for React!
+            </p>
+            <Hola.HeroLinkButton href="https://github.com/TitanSnow/React-HolaKit">
+              GitHub
+            </Hola.HeroLinkButton>
+          </Hola.Hero>
+        </Hola.Header>
         <Hola.Container>
           <Hola.CardStack layout={Hola.Columns}>
-            <Hola.Headline>UI Components</Hola.Headline>
+            <Hola.Headline light>UI Components</Hola.Headline>
             <Hola.Card>
               <Hola.Headline>Button</Hola.Headline>
               <p>
