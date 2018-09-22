@@ -4,6 +4,7 @@ import { withTheme } from 'emotion-theming'
 import Card from './Card'
 import { Columns, ColumnsItem } from '../general/Columns'
 import Headline from './Headline'
+import Grid from '../layouts/Grid'
 
 const varCardGap = props => props.theme.cardGap
 
@@ -17,16 +18,6 @@ const StackTitleStyle = ({ light = false, theme: { textLightColor } }) =>
     },
   })
 
-const Inner = styled.div`
-  ${StackTitleStyle};
-  > ${Card} {
-    margin-bottom: ${varCardGap};
-    margin-top: 0;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-`
 const ColInner = styled(Columns)`
   ${StackTitleStyle};
   position: relative;
@@ -52,7 +43,7 @@ const extendClass = (base, cls) => {
 
 export default styled(
   withTheme(props => {
-    const { children, container: Container = 'div', ...extraProps } = props
+    const { children, layout: Container = Grid, ...extraProps } = props
     const childrenArray = React.Children.toArray(children)
     let title
     if (childrenArray[0].type === Headline) {
@@ -67,9 +58,7 @@ export default styled(
     }
     let result
     if (Container !== Columns) {
-      const Styled =
-        Container === 'div' ? Inner : Inner.withComponent(Container)
-      result = <Styled {...extraProps}>{childrenArray}</Styled>
+      result = <Container {...extraProps}>{childrenArray}</Container>
     } else
       result = (
         <ColInner {...extraProps}>

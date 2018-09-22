@@ -9,7 +9,7 @@ class Demo extends Component {
     return (
       <Hola.Root lang="en">
         <Hola.Container>
-          <Hola.CardStack container={Hola.Columns}>
+          <Hola.CardStack layout={Hola.Columns}>
             <Hola.Headline>UI Components</Hola.Headline>
             <Hola.Card>
               <Hola.Headline>Button</Hola.Headline>
@@ -105,9 +105,9 @@ class Demo extends Component {
         {/** End of Shit **/}
 
         <Hola.Container>
-          {/* <Hola.Headline>Sidebar Layout</Hola.Headline> */}
-          <Hola.Sidebar.Layout>
-            <Hola.Sidebar.Main>
+          <Hola.CardStack layout={Hola.Sidebar}>
+            <Hola.Headline>Sidebar Layout</Hola.Headline>
+            <main>
               <Hola.CardStack>
                 <Hola.Card>
                   <Hola.Headline>Typography</Hola.Headline>
@@ -170,13 +170,15 @@ export function Layout(props) {
                   </Hola.Content>
                 </Hola.Card>
               </Hola.CardStack>
-            </Hola.Sidebar.Main>
-            <Hola.Sidebar.Aside>
+            </main>
+            <aside>
               <Hola.CardStack>
                 <Hola.Card>Lorem ipsum dolor sit.</Hola.Card>
+                <Hola.Card>Lorem ipsum dolor sit.</Hola.Card>
+                <Hola.Card>Lorem ipsum dolor sit.</Hola.Card>
               </Hola.CardStack>
-            </Hola.Sidebar.Aside>
-          </Hola.Sidebar.Layout>
+            </aside>
+          </Hola.CardStack>
         </Hola.Container>
       </Hola.Root>
     )
