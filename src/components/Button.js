@@ -39,19 +39,19 @@ const Button = styled.button(
     if (normal)
       return {
         background: '#eee',
-        color: textDarkColor,
+        color: `${textDarkColor} !important`,
       }
     else if (primary)
       return {
         background: primaryColor,
-        color: textLightColor,
+        color: `${textLightColor} !important`,
       }
     else if (ghost)
       return {
         background: 'transparent',
         boxShadow: `0 0 0 .2em ${primaryColor} inset !important`,
         fontWeight: 'bold',
-        color: primaryColor,
+        color: `${primaryColor} !important`,
       }
   }
 )
