@@ -8,9 +8,14 @@ import { ScrollableHori, ScrollableItem } from '../layouts/ScrollableHori'
 
 const varCardGap = props => props.theme.cardGap
 
-const StackTitleStyle = ({ light = false, theme: { textLightColor } }) =>
+const StackTitleStyle = ({
+  light = false,
+  theme: { textLightColor, cardGap },
+}) =>
   css({
     lineHeight: '2em',
+    paddingBottom: `calc(${cardGap} / 4)`,
+    paddingTop: `calc(${cardGap} / 2)`,
     color: light && textLightColor,
     a: {
       color: 'inherit',
@@ -28,12 +33,11 @@ const Inner = styled.div`
 `
 
 const ColInner = styled(Columns)`
-  ${StackTitleStyle};
   position: relative;
   column-width: 20rem;
   column-gap: 0;
   box-sizing: border-box;
-  margin: 0 calc(${varCardGap} / -2);
+  margin: calc(${varCardGap} / -2);
   /* Due to some bugs in iOS Safari, column gap is simulated with paddings of column items.
   Of course we need to apply a pair of negative margin on column itself to make it align. */
   > ${ColumnsItem} {
