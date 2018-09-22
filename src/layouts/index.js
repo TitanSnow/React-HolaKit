@@ -1,3 +1,3 @@
 export { default as Container } from './Container'
-// export { default as ScrollableHori } from './ScrollableHori'
+export { ScrollableHori, ScrollableItem } from './ScrollableHori'
 export { default as Sidebar } from './Sidebar'

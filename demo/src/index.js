@@ -82,29 +82,21 @@ class Demo extends Component {
               </p>
             </Hola.Card>
           </Hola.CardStack>
-        </Hola.Container>
 
-        {/** Begin of Shit **/}
-        <Hola.Container>
-          {/* <Hola.Headline>
-            Scrollable Horizontal Layout
-          </Hola.Headline> */}
-          <Hola.Card tiny>
-            <Hola.Image>https://source.unsplash.com/featured/?head</Hola.Image>
-            <Hola.Headline>Tiny Card</Hola.Headline>
-          </Hola.Card>
-          <Hola.Card tiny>
-            <Hola.Image>https://source.unsplash.com/featured/?head</Hola.Image>
-            <Hola.Headline>Tiny Card</Hola.Headline>
-          </Hola.Card>
-          <Hola.Card tiny>
-            <Hola.Image>https://source.unsplash.com/featured/?head</Hola.Image>
-            <Hola.Headline>Tiny Card</Hola.Headline>
-          </Hola.Card>
-        </Hola.Container>
-        {/** End of Shit **/}
+          <Hola.CardStack layout={Hola.ScrollableHori}>
+            <Hola.Headline>Scrollable Horizontal Layout</Hola.Headline>
+            {Array(9)
+              .fill(0)
+              .map((_, idx) => (
+                <Hola.Card tiny key={idx}>
+                  <Hola.Image>
+                    https://source.unsplash.com/featured/?head
+                  </Hola.Image>
+                  <Hola.Headline>Tiny Card</Hola.Headline>
+                </Hola.Card>
+              ))}
+          </Hola.CardStack>
 
-        <Hola.Container>
           <Hola.CardStack layout={Hola.Sidebar}>
             <Hola.Headline>Sidebar Layout</Hola.Headline>
             <main>

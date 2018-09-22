@@ -1,19 +1,23 @@
-import styled from 'react-emotion'
-import layoutContainer from './layoutContainer'
+import styled, { css } from 'react-emotion'
 
-export default styled.div`
-  ${layoutContainer};
-  display: flex;
-  box-sizing: content-box;
-  overflow-x: auto;
-  overflow-y: visible;
-  white-space: nowrap;
-  > div > * {
-    vertical-align: top;
-    margin-right: 0.7rem;
-  }
-  > div > :last-child {
-    margin-right: 5vw;
-    /* I don't know laosb's meaning */
-  }
-`
+export const ScrollableItem = styled.div()
+
+export const ScrollableHori = styled.div(
+  {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    alignItems: 'flex-start',
+    overflowX: 'auto',
+  },
+  ({ theme: { cardGap } }) => css`
+    > ${ScrollableItem} {
+      margin: 0 calc(${cardGap} / 2);
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  `
+)

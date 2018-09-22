@@ -4,7 +4,7 @@ import { withTheme } from 'emotion-theming'
 import Card from './Card'
 import { Columns, ColumnsItem } from '../general/Columns'
 import Headline from './Headline'
-import Grid from '../layouts/Grid'
+import { ScrollableHori, ScrollableItem } from '../layouts/ScrollableHori'
 
 const varCardGap = props => props.theme.cardGap
 
@@ -17,6 +17,15 @@ const StackTitleStyle = ({ light = false, theme: { textLightColor } }) =>
       textDecoration: 'none',
     },
   })
+
+const Inner = styled.div`
+  > ${Card} {
+    margin-bottom: ${varCardGap};
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+`
 
 const ColInner = styled(Columns)`
   ${StackTitleStyle};
@@ -43,7 +52,7 @@ const extendClass = (base, cls) => {
 
 export default styled(
   withTheme(props => {
-    const { children, layout: Container = Grid, ...extraProps } = props
+    const { children, layout: Container = Inner, ...extraProps } = props
     const childrenArray = React.Children.toArray(children)
     let title
     if (childrenArray[0].type === Headline) {
@@ -57,9 +66,7 @@ export default styled(
       })
     }
     let result
-    if (Container !== Columns) {
-      result = <Container {...extraProps}>{childrenArray}</Container>
-    } else
+    if (Container === Columns) {
       result = (
         <ColInner {...extraProps}>
           {childrenArray.map(child => (
@@ -67,6 +74,17 @@ export default styled(
           ))}
         </ColInner>
       )
+    } else if (Container === ScrollableHori) {
+      result = (
+        <Container {...extraProps}>
+          {childrenArray.map(child => (
+            <ScrollableItem key={child.key}>{child}</ScrollableItem>
+          ))}
+        </Container>
+      )
+    } else {
+      result = <Container {...extraProps}>{childrenArray}</Container>
+    }
     if (title)
       return (
         <React.Fragment>
