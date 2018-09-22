@@ -74,6 +74,25 @@ class Demo extends Component {
               </Hola.CardItem>
             </Hola.Card>
             <Hola.Card>
+              <Hola.Headline>Info Sheet</Hola.Headline>
+              <Hola.InfoSheet>
+                <dt>周朴园</dt>
+                <dd>（忽然严厉地）你来干什么？</dd>
+                <dt>鲁侍萍</dt>
+                <dd>不是我要来的。</dd>
+                <dt>周朴园</dt>
+                <dd>谁指使你来的？</dd>
+                <dt>鲁侍萍</dt>
+                <dd>（悲愤）命！不公平的命指使我来的。</dd>
+                <dt>周朴园</dt>
+                <dd>（冷冷地）三十年的工夫你还是找到这儿来了。</dd>
+                <dt>鲁侍萍</dt>
+                <dd>
+                  （愤怨）我没有找你，我没有找你，我以为你早死了。我今天没想到到这儿来，这是天要我在这儿又碰见你。
+                </dd>
+              </Hola.InfoSheet>
+            </Hola.Card>
+            <Hola.Card>
               <Hola.Headline>Aut, atque porro?</Hola.Headline>
               <p>
                 Corrupti odit adipisci molestiae expedita quasi necessitatibus.
