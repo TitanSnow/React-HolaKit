@@ -16,7 +16,7 @@ class Demo extends Component {
               <p>
                 <Hola.SubmitButton>Submit</Hola.SubmitButton>{' '}
                 <Hola.Button>Normal</Hola.Button>{' '}
-                <Hola.LinkButton>Link</Hola.LinkButton>
+                <Hola.LinkButton href="javascript:void 0">Link</Hola.LinkButton>
               </p>
               <p>
                 <Hola.Button primary>Primary</Hola.Button>{' '}
