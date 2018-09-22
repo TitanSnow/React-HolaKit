@@ -26,10 +26,19 @@ class Demo extends Component {
             <Hola.Card>
               <Hola.Headline>VMenu</Hola.Headline>
               <Hola.VMenu>
-                <Hola.Link href="javascript:void 0">苟利国家生死以，岂因祸福避趋之。敢同恶鬼争高下，不向霸王让寸分。</Hola.Link>
+                <Hola.Link href="javascript:void 0">
+                  苟利国家生死以，岂因祸福避趋之。敢同恶鬼争高下，不向霸王让寸分。
+                </Hola.Link>
                 <Hola.Link href="javascript:void 0">毛泽东思想</Hola.Link>
-                <Hola.Link href="javascript:void 0">邓小平理论<Hola.Badge>微小的贡献</Hola.Badge></Hola.Link>
-                <Hola.Link href="javascript:void 0" active>三个代表重要思想<Hola.Badge>重要</Hola.Badge><Hola.Badge radii>64</Hola.Badge></Hola.Link>
+                <Hola.Link href="javascript:void 0">
+                  邓小平理论
+                  <Hola.Badge>微小的贡献</Hola.Badge>
+                </Hola.Link>
+                <Hola.Link href="javascript:void 0" active>
+                  三个代表重要思想
+                  <Hola.Badge>重要</Hola.Badge>
+                  <Hola.Badge radii>64</Hola.Badge>
+                </Hola.Link>
                 <Hola.Link href="javascript:void 0">科学发展观</Hola.Link>
               </Hola.VMenu>
             </Hola.Card>
@@ -58,7 +67,7 @@ class Demo extends Component {
             <Hola.Card>
               <Hola.Headline>
                 Badge
-                <Hola.Badge light>0.1.0-dev.1</Hola.Badge>
+                <Hola.Badge>0.1.0-dev.1</Hola.Badge>
               </Hola.Headline>
               <p>
                 This is a very long title
@@ -130,6 +139,36 @@ class Demo extends Component {
             <Hola.Headline>Sidebar Layout</Hola.Headline>
             <main>
               <Hola.CardStack>
+                <Hola.Card>
+                  <Hola.Headline>Table</Hola.Headline>
+                  <Hola.Table fullwidth>
+                    <thead>
+                      <tr>
+                        <th>Lorem.</th>
+                        <th>Reiciendis.</th>
+                        <th>Ducimus?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit.
+                        </td>
+                        <td>
+                          Ab voluptates dolorum adipisci ut impedit aperiam
+                          velit!
+                        </td>
+                        <td>Eum iusto ad dolores sit obcaecati ipsa sint?</td>
+                      </tr>
+                      <tr>
+                        <td>23333</td>
+                        <td>23333</td>
+                        <td>23333</td>
+                      </tr>
+                    </tbody>
+                  </Hola.Table>
+                </Hola.Card>
                 <Hola.Card>
                   <Hola.Headline>Typography</Hola.Headline>
                   <Hola.Content>
