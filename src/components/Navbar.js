@@ -11,22 +11,30 @@ const Inner = styled.div(
     display: 'flex',
     alignItems: 'stretch',
     justifyContent: 'space-between',
-    '> nav': {
-      lineHeight: '5rem',
-      whiteSpace: 'nowrap',
+    '> div': {
+      display: 'flex',
       maxWidth: '100%',
-      overflowX: 'auto',
-      overflowY: 'hidden',
-      '> a': {
+      '> nav': {
+        lineHeight: '5rem',
+        whiteSpace: 'nowrap',
+        maxWidth: '100%',
+        overflowX: 'auto',
+        overflowY: 'hidden',
         display: 'inline-block',
-        fontSize: '1.2rem',
-        textDecoration: 'none',
-        transition: '0.3s color ease',
+        '> a': {
+          display: 'inline-block',
+          fontSize: '1.2rem',
+          textDecoration: 'none',
+          transition: '0.3s color ease',
+        },
+        '&:nth-child(2)': {
+          flexShrink: '0',
+        },
       },
-      '&:first-child > a': {
+      '&:first-child > nav > a': {
         paddingRight: '1em',
       },
-      '&:nth-child(2) > a': {
+      '&:last-child > nav > a': {
         paddingLeft: '1em',
       },
     },
@@ -39,12 +47,12 @@ const Inner = styled.div(
       )
     return (
       (lightBg && {
-        '> nav > a, + nav > a': {
+        'nav > a': {
           color: 'rgba(0, 0, 0, 0.6)',
         },
       }) ||
       (darkBg && {
-        '> nav > a, + nav > a': {
+        'nav > a': {
           color: 'rgba(255, 255, 255, 0.9)',
         },
       })
@@ -126,24 +134,23 @@ class Navbar extends PureComponent {
     })
     const childrenArray = React.Children.toArray(children)
     if (childrenArray.length === 0 || childrenArray.length > 2) throw err
-    if ($layout === 'small') {
-      const rn = childrenArray[1]
-      const toggle = <Toggle open={open} onClick={this.toggleNav} />
-      childrenArray[1] = React.cloneElement(rn, {
-        children: (
-          <React.Fragment>
-            {open && rn.props.children}
-            {toggle}
-          </React.Fragment>
-        ),
-      })
-    }
     return (
       <Outer {...extraProps} white={white} transparent={transparent}>
         <Med>
           <Inner lightBg={lightBg} darkBg={darkBg}>
-            {open ? <nav /> : childrenArray[0]}
-            {childrenArray[1]}
+            <div>{open ? <nav /> : childrenArray[0]}</div>
+            {childrenArray.length === 2 ? (
+              <div>
+                {($layout === 'default' || open) && childrenArray[1]}
+                {$layout === 'small' && (
+                  <nav>
+                    <Toggle open={open} onClick={this.toggleNav} />
+                  </nav>
+                )}
+              </div>
+            ) : (
+              <nav />
+            )}
           </Inner>
         </Med>
       </Outer>
