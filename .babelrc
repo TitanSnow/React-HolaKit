@@ -3,6 +3,14 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "babel-plugin-emotion"
-  ]
+    "babel-plugin-emotion",
+    "@babel/plugin-syntax-object-rest-spread"
+  ],
+  "env": {
+    "cjs": {
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    }
+  }
 }
