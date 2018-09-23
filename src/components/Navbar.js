@@ -29,7 +29,7 @@ const Inner = styled.div(
       '&:nth-child(2) > a': {
         paddingLeft: '1em',
       },
-    }
+    },
   },
 
   ({ lightBg, darkBg }) => {
@@ -72,7 +72,10 @@ const Medium = styled.div(({ theme: { layoutDivide } }) => ({
   },
 }))
 
-const toggleStyle = css({transform: 'scale(1.5)', transformOrigin: 'right center'})
+const toggleStyle = css({
+  transform: 'scale(1.5)',
+  transformOrigin: 'right center',
+})
 
 const Toggle = ({ open, className, ...extraProps }) => {
   className = className ? className + ' ' + toggleStyle : toggleStyle
@@ -125,11 +128,15 @@ class Navbar extends PureComponent {
     if (childrenArray.length === 0 || childrenArray.length > 2) throw err
     if ($layout === 'small') {
       const rn = childrenArray[1]
-      const toggle = <Toggle open={open} onClick={this.toggleNav}/>
-      childrenArray[1] = React.cloneElement(rn, { children: <React.Fragment>
-        {open && rn.props.children}
-        {toggle}
-      </React.Fragment>})
+      const toggle = <Toggle open={open} onClick={this.toggleNav} />
+      childrenArray[1] = React.cloneElement(rn, {
+        children: (
+          <React.Fragment>
+            {open && rn.props.children}
+            {toggle}
+          </React.Fragment>
+        ),
+      })
     }
     return (
       <Outer {...extraProps} white={white} transparent={transparent}>
