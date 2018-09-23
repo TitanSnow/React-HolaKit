@@ -2,12 +2,14 @@ import React from 'react'
 import styled, { css } from 'react-emotion'
 import Card from './Card'
 
-export const ActiveLi = styled.li(({ theme: { primaryColor, textLightColor } }) => ({
-  '> a': {
-    background: primaryColor,
-    color: textLightColor,
-  },
-}))
+export const ActiveLi = styled.li(
+  ({ theme: { primaryColor, textLightColor } }) => ({
+    '> a': {
+      background: primaryColor,
+      color: textLightColor,
+    },
+  })
+)
 
 const Inner = styled.ul(
   ({ theme: { primaryColor } }) => ({
