@@ -3,20 +3,27 @@ import { render } from 'react-dom'
 
 import * as Hola from '../../src'
 
+const myAvatarURL = 'https://avatars.githubusercontent.com/u/19969470'
+const voidURL = 'javascript:void 0'
+const AtGH = ({ children, ...extraProps }) => (
+  <Hola.Link {...extraProps} href={`https://github.com/${children}`}>
+    @{children}
+  </Hola.Link>
+)
+
 class Demo extends Component {
   render() {
-    const myAvatarURL = 'https://avatars.githubusercontent.com/u/19969470'
     return (
       <Hola.Root lang="en">
         <Hola.Header>
           <Hola.Navbar>
             <nav>
-              <Hola.Brand href="javascript:void 0">React-HolaKit</Hola.Brand>
-              <Hola.Link href="javascript:void 0">Test1</Hola.Link>
+              <Hola.Brand href={voidURL}>React-HolaKit</Hola.Brand>
+              <Hola.Link href={voidURL}>Test1</Hola.Link>
             </nav>
             <nav>
-              <Hola.Link href="javascript:void 0">Test2</Hola.Link>
-              <Hola.Link href="javascript:void 0">Test3</Hola.Link>
+              <Hola.Link href={voidURL}>Test2</Hola.Link>
+              <Hola.Link href={voidURL}>Test3</Hola.Link>
             </nav>
           </Hola.Navbar>
           <Hola.Hero>
@@ -37,7 +44,7 @@ class Demo extends Component {
               <p>
                 <Hola.SubmitButton>Submit</Hola.SubmitButton>{' '}
                 <Hola.Button>Normal</Hola.Button>{' '}
-                <Hola.LinkButton href="javascript:void 0">Link</Hola.LinkButton>
+                <Hola.LinkButton href={voidURL}>Link</Hola.LinkButton>
               </p>
               <p>
                 <Hola.Button primary>Primary</Hola.Button>{' '}
@@ -47,20 +54,20 @@ class Demo extends Component {
             <Hola.Card lang="zh-CN">
               <Hola.Headline>VMenu</Hola.Headline>
               <Hola.VMenu>
-                <Hola.Link href="javascript:void 0">
+                <Hola.Link href={voidURL}>
                   苟利国家生死以，岂因祸福避趋之。敢同恶鬼争高下，不向霸王让寸分。
                 </Hola.Link>
-                <Hola.Link href="javascript:void 0">毛泽东思想</Hola.Link>
-                <Hola.Link href="javascript:void 0">
+                <Hola.Link href={voidURL}>毛泽东思想</Hola.Link>
+                <Hola.Link href={voidURL}>
                   邓小平理论
                   <Hola.Badge>微小的贡献</Hola.Badge>
                 </Hola.Link>
-                <Hola.Link href="javascript:void 0" active>
+                <Hola.Link href={voidURL} active>
                   三个代表重要思想
                   <Hola.Badge>重要</Hola.Badge>
                   <Hola.Badge radii>64</Hola.Badge>
                 </Hola.Link>
-                <Hola.Link href="javascript:void 0">科学发展观</Hola.Link>
+                <Hola.Link href={voidURL}>科学发展观</Hola.Link>
               </Hola.VMenu>
             </Hola.Card>
             <Hola.Card>
@@ -257,8 +264,14 @@ export function Layout(props) {
           </Hola.CardStack>
         </Hola.Container>
         <Hola.Footer>
-          <p>Copyright 2018 TitanSnow</p>
-          <p>Test</p>
+          <p>
+            Made with <Hola.Icon alt="love">favorite</Hola.Icon> by{' '}
+            <AtGH>TitanSnow</AtGH>
+          </p>
+          <p>
+            Made with <Hola.Icon alt="design">palette</Hola.Icon> of{' '}
+            <AtGH>teamhola/holakit</AtGH>
+          </p>
         </Hola.Footer>
       </Hola.Root>
     )
