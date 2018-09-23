@@ -29,10 +29,10 @@ class Demo extends Component {
           <Hola.Hero>
             <Hola.Headline>React-HolaKit</Hola.Headline>
             <p>
-              Yet another design-driven UI component library, now for React!
+              Yet another design-driven UI component library, now for React! <Hola.Icon>brand/react</Hola.Icon>
             </p>
             <Hola.HeroLinkButton href="https://github.com/TitanSnow/React-HolaKit">
-              GitHub
+              <Hola.Icon>brand/github</Hola.Icon> GitHub
             </Hola.HeroLinkButton>
           </Hola.Hero>
         </Hola.Header>
