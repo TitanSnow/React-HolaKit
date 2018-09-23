@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'react-emotion'
-import './icon.css'
 
 export default styled(({ children, className, alt, ...extraProps }) => {
   if (typeof children !== 'string')

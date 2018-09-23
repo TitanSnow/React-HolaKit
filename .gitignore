@@ -2,6 +2,7 @@
 /lib
 /node_modules
 /.cache
+/dist
 .vscode
 *-debug.log*
 *-error.log*
