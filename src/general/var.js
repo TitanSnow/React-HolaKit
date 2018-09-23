@@ -21,6 +21,7 @@ export default class DefaultVars extends PureComponent {
       cardGap: '2rem',
       elementGap: '2rem',
       layoutDivide: this.layoutDivide + 'px',
+      $layout: 'default',
     }
 
     this.smallVars = {
@@ -28,6 +29,7 @@ export default class DefaultVars extends PureComponent {
       cardPadding: '1.6rem',
       cardGap: '2.5vw',
       elementGap: '1rem',
+      $layout: 'small',
     }
 
     this.state = {
@@ -52,6 +54,7 @@ export default class DefaultVars extends PureComponent {
   }
 
   componentDidMount() {
+    this.syncVars()
     window.addEventListener('resize', this.syncVars)
   }
 
