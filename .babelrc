@@ -1,15 +1,21 @@
 {
   "presets": [
-    "@babel/preset-react"
+    ["env", {
+      "targets": {
+        "browsers": "firefox >= 57, chrome >= 63, opera >= 50, safari >= 11.1"
+      },
+      "modules": false
+    }],
+    "react"
   ],
   "plugins": [
-    "babel-plugin-emotion",
-    "@babel/plugin-syntax-object-rest-spread"
+    "emotion",
+    "babel-plugin-syntax-object-rest-spread"
   ],
   "env": {
     "cjs": {
       "plugins": [
-        "@babel/plugin-transform-modules-commonjs"
+        "babel-plugin-transform-es2015-modules-commonjs"
       ]
     }
   }
