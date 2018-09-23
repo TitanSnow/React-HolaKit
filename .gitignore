@@ -1,10 +1,9 @@
-/coverage
 /demo/dist
-/es
 /lib
 /node_modules
-/umd
-npm-debug.log*
-yarn.lock
+/.cache
 .vscode
+*-debug.log*
+*-error.log*
+yarn.lock
 shrinkwrap.yaml
